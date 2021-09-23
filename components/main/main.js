@@ -14,7 +14,7 @@ return(
     </p>
 
     <div className={styles.grid}>
-      <a href="/docs" className={styles.card}>
+      <a href="/Crud" className={styles.card}>
         <h2>Documentation &rarr;</h2>
         <p>Find in-depth information about Next.js features and API.</p>
       </a>
