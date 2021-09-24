@@ -2,44 +2,57 @@ import { useEffect, useState } from 'react'
 import Api from '../service/Api'
 
 
-const Crud = ()=>{
-    
-    const initialState = {
-        user: { name: 'Fa', email: 'Fa' , telefone: '', tipo: ''},
-    }
+const Crud = () => {
 
-    const [state, setUser] = useState(initialState)
-    const [data, setData] = useState()
+  const initialState = {
+    user: []
+  }
+
+  const [data, setData] = useState(initialState.user)
 
 
-    useEffect(() => {
-        const fetchData = async () => {
-        const result = await 
-        
-        Api 
+  useEffect(() => {
+    const fetchData = async () => {
+      const result = await
+
+        Api
           .get(
-            '/contatos',
+            '/user',
           );
-     
-          setData(result.data);
-          console.log()
-        };
-     
-        fetchData();
-      }, []);
-
-    function clear() {
-        setUser({user: initialState.user })
-        
-    }   
 
 
+      setData(result.data);
 
-    return(
-      <div>
-          {state.user.name}
-      </div>
-    )
+    };
+
+    fetchData();
+  }, []);
+
+  function clear() {
+    setUser({ user: initialState.user })
+
+  }
+
+
+  function rendeRows() {
+    // return console.log(data.user)
+    return data.map(i => (
+      <li>
+        {
+          <a>{i.name}</a>
+        }
+
+
+      </li> 
+             ))
+  }
+
+
+  return (
+    <div>
+      {rendeRows()}
+    </div>
+  )
 
 }
 
