@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import NavBar from '../components/nav/nav'
 import Api from '../service/Api'
 
 
@@ -43,14 +44,15 @@ const Crud = () => {
         }
 
 
-      </li> 
-             ))
+      </li>
+    ))
   }
 
 
   return (
     <div>
-      {rendeRows()}
+      <NavBar/>
+        {rendeRows()}  
     </div>
   )
 
